@@ -6,6 +6,13 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import generateUUID from 'smc-uuid-generator';
 import { SnackBarService } from '../service/snack-bar.service';
 
+
+interface bloodGroup {
+  value: string;
+  viewValue: string;
+}
+
+
 @Component({
   selector: 'app-employee-edit',
   templateUrl: './employee-edit.component.html',
@@ -17,6 +24,17 @@ export class EmployeeEditComponent implements OnInit {
  id;
  @ViewChild("f") form: any;
 
+ bg: bloodGroup[] = [
+  {value: 'A +', viewValue: 'A +'},
+  {value: 'A -', viewValue: 'A -'},
+  {value: 'B +', viewValue: 'B +'},
+  {value: 'B -', viewValue: 'B -'},
+  {value: 'AB +', viewValue: 'AB +'},
+  {value: 'AB -', viewValue: 'AB -'},
+  {value: 'O +', viewValue: 'O +'},
+  {value: 'O -', viewValue: 'O -'},
+
+];
 
   employeeData: EmployeeInterface;
   constructor( 
@@ -46,7 +64,7 @@ export class EmployeeEditComponent implements OnInit {
       this.employeeService.editEmployeeData(this.emp);  //this.employeeData
       // this.employeeEditForm.reset();
       this.snackbar.info("Successfully edited!")
-      // this.router.navigate(['/ems']);
+      this.router.navigate(['/ems']);
     }
   }
 
@@ -54,9 +72,6 @@ export class EmployeeEditComponent implements OnInit {
     return index;
   }
 
-  updateInput(obj1,event){
-    this.emp[event.target.name][obj1] = event.target.value;
-    console.log(obj1)
-  }
+
 
 }

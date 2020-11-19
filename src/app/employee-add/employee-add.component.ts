@@ -125,7 +125,7 @@ export class EmployeeAddComponent implements OnInit {
       // localStorage.setItem('Employee', JSON.stringify (this.employeeData))
       this.employeeService.addEmployeeData(this.employeeSet());  //this.employeeData
       // this.employeeAddForm.reset();
-      this.snackbar.info("Employee Addes!")
+      this.snackbar.info("Employee Added!")
       window.location.reload()
     }
   }

@@ -1,0 +1,19 @@
+.submit-button{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+   
+}
+
+.container { 
+    height: 100%;
+    width: 200%;
+    position: relative;
+  
+  }
+
+  .form-area{
+    background: #f8f9fa;
+}
+

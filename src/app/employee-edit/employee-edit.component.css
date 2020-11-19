@@ -1,0 +1,15 @@
+.container{
+    margin-top: 10%;
+}
+
+.form-area{
+    background: #f8f9fa;
+}
+.submit-button{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+

@@ -1,8 +1,8 @@
 .app-container {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
-.navbar-brand{
-    cursor: pointer;
+.navbar-brand {
+  cursor: pointer;
 }

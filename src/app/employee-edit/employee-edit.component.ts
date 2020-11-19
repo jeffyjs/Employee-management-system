@@ -21,30 +21,30 @@ interface bloodGroup {
 export class EmployeeEditComponent implements OnInit {
   emps;
   emp
- id;
- @ViewChild("f") form: any;
+  id;
+  @ViewChild("f") form: any;
 
- bg: bloodGroup[] = [
-  {value: 'A +', viewValue: 'A +'},
-  {value: 'A -', viewValue: 'A -'},
-  {value: 'B +', viewValue: 'B +'},
-  {value: 'B -', viewValue: 'B -'},
-  {value: 'AB +', viewValue: 'AB +'},
-  {value: 'AB -', viewValue: 'AB -'},
-  {value: 'O +', viewValue: 'O +'},
-  {value: 'O -', viewValue: 'O -'},
+  bg: bloodGroup[] = [
+    { value: 'A +', viewValue: 'A +' },
+    { value: 'A -', viewValue: 'A -' },
+    { value: 'B +', viewValue: 'B +' },
+    { value: 'B -', viewValue: 'B -' },
+    { value: 'AB +', viewValue: 'AB +' },
+    { value: 'AB -', viewValue: 'AB -' },
+    { value: 'O +', viewValue: 'O +' },
+    { value: 'O -', viewValue: 'O -' },
 
-];
+  ];
 
   employeeData: EmployeeInterface;
-  constructor( 
-    private employeeService:EmployeeService,
-    private router:Router,
-   private _Activatedroute:ActivatedRoute,
-   private snackbar:SnackBarService
-    ) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router,
+    private _Activatedroute: ActivatedRoute,
+    private snackbar: SnackBarService
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.id = this._Activatedroute.snapshot.params['id'];
     console.log(this.id)
     this.emps = this.employeeService.getEmployeeData();
@@ -54,15 +54,10 @@ export class EmployeeEditComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  onSubmit() {
 
-    if(this.form.value){
-      console.log(this.form.value);
-      console.log(this.emp);
-      //this.employeeData = Object.assign(this.employeeData, this.employeeAddForm.value);
-      // localStorage.setItem('Employee', JSON.stringify (this.employeeData))
-      this.employeeService.editEmployeeData(this.emp);  //this.employeeData
-      // this.employeeEditForm.reset();
+    if (this.form.value) {
+      this.employeeService.editEmployeeData(this.emp);
       this.snackbar.info("Successfully edited!")
       this.router.navigate(['/ems']);
     }

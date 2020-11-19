@@ -1,17 +1,14 @@
-.container{
-    margin-top: 10%;
-    
+.container {
+  margin-top: 10%;
 }
 table {
-    width: 100%;
-  }
-  
-  section {
-    display: table;
-  }
- 
+  width: 100%;
+}
 
+section {
+  display: table;
+}
 
-.add-btn{
+.add-btn {
   float: right;
 }

@@ -32,99 +32,76 @@ export class EmployeeAddComponent implements OnInit {
   employeeData: EmployeeInterface;
 
   bg: bloodGroup[] = [
-    {value: 'A +', viewValue: 'A +'},
-    {value: 'A -', viewValue: 'A -'},
-    {value: 'B +', viewValue: 'B +'},
-    {value: 'B -', viewValue: 'B -'},
-    {value: 'AB +', viewValue: 'AB +'},
-    {value: 'AB -', viewValue: 'AB -'},
-    {value: 'O +', viewValue: 'O +'},
-    {value: 'O -', viewValue: 'O -'},
+    { value: 'A +', viewValue: 'A +' },
+    { value: 'A -', viewValue: 'A -' },
+    { value: 'B +', viewValue: 'B +' },
+    { value: 'B -', viewValue: 'B -' },
+    { value: 'AB +', viewValue: 'AB +' },
+    { value: 'AB -', viewValue: 'AB -' },
+    { value: 'O +', viewValue: 'O +' },
+    { value: 'O -', viewValue: 'O -' },
 
   ];
-  
+
 
   constructor(
-    private employeeService:EmployeeService,
-    private router:Router,
-    private snackbar:SnackBarService
-    ) { }
+    private employeeService: EmployeeService,
+    private router: Router,
+    private snackbar: SnackBarService
+  ) { }
 
 
 
 
-  employeeSet():EmployeeInterface{
+  employeeSet(): EmployeeInterface {
     return this.employeeData = {
-      name:this.name.value,
-      age:this.age.value,
-      department:this.department.value,
-      bloodGroup:this.bloodGroup.value,
-      address:this.address.value,
-      contactNumber:this.contactNumber.value,
-      id:generateUUID()
+      name: this.name.value,
+      age: this.age.value,
+      department: this.department.value,
+      bloodGroup: this.bloodGroup.value,
+      address: this.address.value,
+      contactNumber: this.contactNumber.value,
+      id: generateUUID()
     }
   }
 
-  get name(){
+  get name() {
     return this.employeeAddForm.get('name') as FormControl
   }
-  get age(){
+  get age() {
     return this.employeeAddForm.get('age') as FormControl
   }
-  get department(){
+  get department() {
     return this.employeeAddForm.get('department') as FormControl
   }
-  get bloodGroup(){
+  get bloodGroup() {
     return this.employeeAddForm.get('bloodGroup') as FormControl
   }
-  get address(){
+  get address() {
     return this.employeeAddForm.get('address') as FormArray
   }
-  get contactNumber(){
+  get contactNumber() {
     return this.employeeAddForm.get('contactNumber') as FormArray
   }
 
-  // addEmployeeData(employeeData){
-  //   let allEmployees = [];
-  //   if(localStorage.getItem('Employees')){
-  //     allEmployees = JSON.parse(localStorage.getItem('Employees'));
-  //     allEmployees = [employeeData, ...allEmployees];
-  //   }
-  //   else{
-  //     allEmployees = [employeeData]
-  //   }
-  //   localStorage.setItem('Employees', JSON.stringify (allEmployees))
-  // }
 
 
-
-  onAddNumber(){
-    // const controls = new FormControl(null);
+  onAddNumber() {
     (<FormArray>this.employeeAddForm.get('contactNumber')).push(new FormControl(''));
-   
   }
 
-  onAddAddress(){
-    // const controlsAddress = new FormControl(null);
-    // (<FormArray>this.employeeAddForm.get('address')).push(controlsAddress)
+  onAddAddress() {
     (<FormArray>this.employeeAddForm.get('address')).push(new FormControl(''));
   }
 
 
-  ngOnInit(){
+  ngOnInit() {
     this.emps = this.employeeService.getEmployeeData();
-
   }
 
-  onSubmit(){
-   
-    console.log(this.employeeAddForm.getRawValue());
-
-    if(this.employeeAddForm.valid){
-      //this.employeeData = Object.assign(this.employeeData, this.employeeAddForm.value);
-      // localStorage.setItem('Employee', JSON.stringify (this.employeeData))
-      this.employeeService.addEmployeeData(this.employeeSet());  //this.employeeData
-      // this.employeeAddForm.reset();
+  onSubmit() {
+    if (this.employeeAddForm.valid) {
+      this.employeeService.addEmployeeData(this.employeeSet());
       this.snackbar.info("Employee Added!")
       window.location.reload()
     }

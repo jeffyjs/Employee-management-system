@@ -1,5 +1,3 @@
-
-
 <div class="container form-area">
   <h2>Add Employee</h2>
   <hr>
@@ -14,32 +12,28 @@
 
       <div class="col">
         <label>Age</label>
-        <input type="number" class="form-control"  formControlName="age">
+        <input type="number" class="form-control" formControlName="age">
         <mat-error *ngIf="(age.touched && age.invalid)">Age of the Employee is required*</mat-error>
       </div>
 
       <div class="col">
         <label>Department</label>
-        <input type="text" class="form-control"  formControlName="department">
-        <mat-error *ngIf="(department.touched && department.invalid)">Department of the Employee is required*</mat-error>
+        <input type="text" class="form-control" formControlName="department">
+        <mat-error *ngIf="(department.touched && department.invalid)">Department of the Employee is required*
+        </mat-error>
       </div>
 
-      <!-- <div class="col">
-        <label for="exampleInputEmail1">Blood group</label>
-        <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="bloodGroup">
-        <mat-error *ngIf="(bloodGroup.touched && bloodGroup.invalid)">Blood Group of the Employee is required*</mat-error>
-      </div> -->
 
       <div class="col">
-        
-         <label>Blood Group</label>
-          <mat-select formControlName="bloodGroup" class="form-control">
-            <mat-option *ngFor="let item of bg" [value]="item.value">
-              {{item.viewValue}}
-            </mat-option>
-          </mat-select>
-    
-        
+
+        <label>Blood Group</label>
+        <mat-select formControlName="bloodGroup" class="form-control">
+          <mat-option *ngFor="let item of bg" [value]="item.value">
+            {{item.viewValue}}
+          </mat-option>
+        </mat-select>
+
+
       </div>
 
       <div class="w-100"></div>
@@ -48,22 +42,22 @@
       <div class="col">
         <label>Address</label>
         <div formArrayName="address">
-          
+
           <div class="form-group" *ngFor="let newAddress of employeeAddForm.get('address').controls; let i = index">
-            <textarea type="text" class="form-control"  [formControlName]="i"></textarea>
-            <!-- <mat-error *ngIf="(address.touched && address.invalid)">This field is required</mat-error> -->
+            <textarea type="text" class="form-control" [formControlName]="i"></textarea>
           </div>
           <button (click)="onAddAddress()" type="button" mat-raised-button color="secondary">Add Address*</button>
         </div>
       </div>
 
-      <div class="col" >
+      <div class="col">
         <label>Contact</label>
 
         <div formArrayName="contactNumber">
-          
-          <div class="form-group" *ngFor="let newNumber of employeeAddForm.get('contactNumber').controls; let i = index">
-            <input type="number" class="form-control"  [formControlName]="i">
+
+          <div class="form-group"
+            *ngFor="let newNumber of employeeAddForm.get('contactNumber').controls; let i = index">
+            <input type="number" class="form-control" [formControlName]="i">
           </div>
           <button (click)="onAddNumber()" type="button" mat-raised-button color="secondary">Add number*</button>
         </div>
@@ -72,13 +66,12 @@
     </div>
 
 
-<hr>
-<div class="submit-button">
-  <button mat-raised-button color="primary"  type="submit" [disabled]="!employeeAddForm.valid">Add Employee</button>
-</div>
-     
-</form>
+    <hr>
+    <div class="submit-button">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!employeeAddForm.valid">Add Employee</button>
+    </div>
 
- 
-</div>
+  </form>
 
+
+</div>

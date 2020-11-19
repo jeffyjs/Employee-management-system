@@ -19,26 +19,26 @@ import { SnackBarService } from '../service/snack-bar.service';
   styleUrls: ['./employee-table.component.css']
 })
 export class EmployeeTableComponent implements OnInit, AfterViewInit {
-  ELEMENT_DATA:EmployeeInterface[];
- displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup','address','contactNumber','edit','delete'];
- dataSource = new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
-  // data:EmployeeInterface[]=[]
-  
-emps;
-id;
-emp
+  ELEMENT_DATA: EmployeeInterface[];
+  displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete'];
+  dataSource = new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
 
-@ViewChild(MatSort) sort: MatSort;
-@ViewChild(MatPaginator) paginator: MatPaginator;
+
+  emps;
+  id;
+  emp
+
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(
     public dialog: MatDialog,
-    private employeeService:EmployeeService,
-    private _Activatedroute:ActivatedRoute,
-    private snackbar:SnackBarService
-    ) {}
+    private employeeService: EmployeeService,
+    private _Activatedroute: ActivatedRoute,
+    private snackbar: SnackBarService
+  ) { }
 
-    
+
   openDialog() {
     const dialogRef = this.dialog.open(EmployeeAddComponent);
 
@@ -53,9 +53,9 @@ emp
   }
 
   onDelete(id) {
-    for(let i = 0; i < this.emps.length; i++) {
-      if(this.emps[i].id == id) {
-          this.emps.splice(i, 1);
+    for (let i = 0; i < this.emps.length; i++) {
+      if (this.emps[i].id == id) {
+        this.emps.splice(i, 1);
       }
     }
 
@@ -65,19 +65,14 @@ emp
   }
 
   ngOnInit(): void {
-   this.emps = this.employeeService.getEmployeeData();
-    console.log(this.emps);
-
-    this.id=this._Activatedroute.snapshot.params['id'];
-    this.emp=this.emps.find(p => p.id==this.id);
+    this.emps = this.employeeService.getEmployeeData();
+    this.id = this._Activatedroute.snapshot.params['id'];
+    this.emp = this.emps.find(p => p.id == this.id);
 
     this.dataSource.data = this.emps as EmployeeInterface[];
-    console.log(this.dataSource);
+
   }
 
-  //  doFilter(value: string) {
-  //   this.dataSource.filter = value.trim().toLocaleLowerCase();
-  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

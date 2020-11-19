@@ -8,24 +8,24 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EmployeeService } from './service/employee.service';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatInputModule} from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatInputModule } from '@angular/material/input';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon'
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon'
+import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarService } from './service/snack-bar.service';
 import { LimitTextPipe } from './pipes/limit-text.pipe';
 
 const routes: Routes = [
-  {path:"ems", component:EmployeeTableComponent},
-  {path:"emp-edit/:id", component:EmployeeEditComponent}
+  { path: "ems", component: EmployeeTableComponent },
+  { path: "emp-edit/:id", component: EmployeeEditComponent }
 
 ]
 
@@ -55,11 +55,11 @@ const routes: Routes = [
     MatSnackBarModule,
     RouterModule.forRoot(routes)
   ],
-  exports:[
+  exports: [
     MatDialogModule
   ],
 
-  providers: [EmployeeService,SnackBarService],
+  providers: [EmployeeService, SnackBarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

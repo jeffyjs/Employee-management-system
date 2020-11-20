@@ -28,10 +28,13 @@
 
         <label>Blood Group</label>
         <mat-select formControlName="bloodGroup" class="form-control">
+          
           <mat-option *ngFor="let item of bg" [value]="item.value">
             {{item.viewValue}}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="(bloodGroup.touched && bloodGroup.invalid)">Blood Group of the Employee is required*
+        </mat-error>
 
 
       </div>
@@ -45,6 +48,8 @@
 
           <div class="form-group" *ngFor="let newAddress of employeeAddForm.get('address').controls; let i = index">
             <textarea type="text" class="form-control" [formControlName]="i"></textarea>
+            <mat-error *ngIf="(address.touched && address.invalid)">Address of the Employee is required*
+            </mat-error>
           </div>
           <button (click)="onAddAddress()" type="button" mat-raised-button color="secondary">Add Address*</button>
         </div>
@@ -58,6 +63,8 @@
           <div class="form-group"
             *ngFor="let newNumber of employeeAddForm.get('contactNumber').controls; let i = index">
             <input type="number" class="form-control" [formControlName]="i">
+            <mat-error *ngIf="(contactNumber.touched && contactNumber.invalid)">Contact Number of the Employee is required*
+            </mat-error>
           </div>
           <button (click)="onAddNumber()" type="button" mat-raised-button color="secondary">Add number*</button>
         </div>
@@ -68,10 +75,15 @@
 
     <hr>
     <div class="submit-button">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!employeeAddForm.valid">Add Employee</button>
+      <div class="row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!employeeAddForm.valid">Add Employee</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button mat-button mat-dialog-close>Cancel</button>
+      </div>
+    
     </div>
+  
 
   </form>
-
 
 </div>

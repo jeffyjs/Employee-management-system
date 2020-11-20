@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SnackBarService } from '../service/snack-bar.service';
+import { EmployeeViewDetailsComponent } from '../employee-view-details/employee-view-details.component';
 
 
 
@@ -20,7 +21,7 @@ import { SnackBarService } from '../service/snack-bar.service';
 })
 export class EmployeeTableComponent implements OnInit, AfterViewInit {
   ELEMENT_DATA: EmployeeInterface[];
-  displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete','view'];
   dataSource = new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
 
 
@@ -46,6 +47,8 @@ export class EmployeeTableComponent implements OnInit, AfterViewInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;

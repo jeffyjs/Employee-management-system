@@ -5,15 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class LimitTextPipe implements PipeTransform {
 
-  transform(value: string, limit?: number){
-  //   if(!value)
-  //   return null;
-
-  // let actualLimit = (limit) ? limit: 20;
-  // return value.substr(0, actualLimit)
-
-  return null
-  
+  transform(value: string, limit: number): string {
+    return value.length < limit
+      ? value
+      : value.slice(0, limit) + '...';
   }
 
 }

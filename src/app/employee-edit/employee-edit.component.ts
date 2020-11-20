@@ -46,20 +46,20 @@ export class EmployeeEditComponent implements OnInit {
 
   ngOnInit() {
     this.id = this._Activatedroute.snapshot.params['id'];
-    console.log(this.id)
+    // console.log(this.id)
     this.emps = this.employeeService.getEmployeeData();
     this.emp = this.emps.find(res => res.id == this.id)
-    console.log("Edit", this.emp)
-
 
   }
+
+  
 
   onSubmit() {
 
     if (this.form.value) {
       this.employeeService.editEmployeeData(this.emp);
       this.snackbar.info("Successfully edited!")
-      this.router.navigate(['/ems']);
+      this.router.navigate(['/']);
     }
   }
 

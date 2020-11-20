@@ -12,3 +12,6 @@ section {
 .add-btn {
   float: right;
 }
+th{
+  font-weight: bold;
+}

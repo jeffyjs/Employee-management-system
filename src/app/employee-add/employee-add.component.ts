@@ -22,11 +22,15 @@ export class EmployeeAddComponent implements OnInit {
 
   employeeAddForm = new FormGroup({
     name: new FormControl(null, [Validators.required]),
-    age: new FormControl(null, [Validators.required]),
+    age: new FormControl(null, [Validators.required,Validators.maxLength(2)]),
     department: new FormControl(null, [Validators.required]),
     bloodGroup: new FormControl(null, [Validators.required]),
-    address: new FormArray([]),
-    contactNumber: new FormArray([])
+    address: new FormArray([
+      new FormControl('', [Validators.required])
+    ]),
+    contactNumber: new FormArray([
+      new FormControl('', [Validators.required])
+    ])
   })
 
   employeeData: EmployeeInterface;
@@ -106,5 +110,7 @@ export class EmployeeAddComponent implements OnInit {
       window.location.reload()
     }
   }
+
+  
 
 }

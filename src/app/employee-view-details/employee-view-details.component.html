@@ -1,0 +1,24 @@
+<div class="container">
+    <mat-card>
+        <div class="row">
+            <h2>Employee Details</h2>
+            <div class="back-btn">
+                <button mat-mini-fab aria-label="Example icon button with a home icon" [routerLink]="['/']">
+                    <mat-icon>home</mat-icon>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="row" class="form-area">
+
+            <h2>Name: {{emp.name}}</h2>
+            <h2> Age: {{emp.age}} </h2>
+            <h2> Department: {{emp.department}}</h2>
+            <h2> BloodGroup: {{emp.bloodGroup}}</h2>
+            <h2> Address: <li *ngFor="let item of emp.address">{{item}}</li>
+            </h2>
+            <h2>ContactNumber:<li *ngFor="let number of emp.contactNumber">{{number}}</li>
+            </h2>
+        </div>
+    </mat-card>
+</div>

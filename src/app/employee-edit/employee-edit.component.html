@@ -53,8 +53,14 @@
               </div>
 
               <div class="submit-button">
-                <button mat-raised-button color="primary" type="submit">Save & Update </button>
+                <div class="row">
+                  <button mat-raised-button color="secondary"  [routerLink]="['/']" >Cancel </button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button mat-raised-button color="primary" type="submit">Save & Update </button>
+                </div>
+              
               </div>
+              
             </form>
           </div>
 

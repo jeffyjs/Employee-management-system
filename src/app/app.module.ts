@@ -22,10 +22,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackBarService } from './service/snack-bar.service';
 import { LimitTextPipe } from './pipes/limit-text.pipe';
+import { EmployeeViewDetailsComponent } from './employee-view-details/employee-view-details.component';
 
 const routes: Routes = [
-  { path: "ems", component: EmployeeTableComponent },
-  { path: "emp-edit/:id", component: EmployeeEditComponent }
+  { path: "", component: EmployeeTableComponent },
+  { path: "emp-edit/:id", component: EmployeeEditComponent },
+  { path: "emp-view/:id", component: EmployeeViewDetailsComponent }
 
 ]
 
@@ -35,7 +37,8 @@ const routes: Routes = [
     EmployeeTableComponent,
     EmployeeAddComponent,
     EmployeeEditComponent,
-    LimitTextPipe
+    LimitTextPipe,
+    EmployeeViewDetailsComponent
   ],
   imports: [
     BrowserModule,

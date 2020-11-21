@@ -22,7 +22,7 @@ import { EmployeeViewDetailsComponent } from '../employee-view-details/employee-
 export class EmployeeTableComponent implements OnInit, AfterViewInit {
   ELEMENT_DATA: EmployeeInterface[];
   displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete','view'];  //table head
-  dataSource = new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
+  dataSource;
 
 
   emps;
@@ -72,7 +72,7 @@ export class EmployeeTableComponent implements OnInit, AfterViewInit {
     this.emps = this.employeeService.getEmployeeData();
     this.id = this._Activatedroute.snapshot.params['id'];
     this.emp = this.emps.find(p => p.id == this.id);
-
+  this.dataSource =  new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
     this.dataSource.data = this.emps as EmployeeInterface[];
 
   }

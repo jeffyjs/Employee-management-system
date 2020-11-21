@@ -23,7 +23,7 @@ export class EmployeeAddComponent implements OnInit {
 
   emps;
 
-  employeeAddForm = new FormGroup({
+  employeeAddForm:any = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     age: new FormControl(null, [Validators.required,Validators.maxLength(2)]),
     department: new FormControl(null, [Validators.required]),
@@ -102,6 +102,7 @@ export class EmployeeAddComponent implements OnInit {
 
   ngOnInit() {
     this.emps = this.employeeService.getEmployeeData();
+    console.log(this.employeeAddForm.get('address'))
   }
 
   onSubmit() {

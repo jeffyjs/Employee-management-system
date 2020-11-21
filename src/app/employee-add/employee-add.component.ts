@@ -6,6 +6,9 @@ import { EmployeeService } from '../service/employee.service';
 import generateUUID from 'smc-uuid-generator';
 import { SnackBarService } from '../service/snack-bar.service';
 
+
+// bloodgroup interface
+
 interface bloodGroup {
   value: string;
   viewValue: string;
@@ -31,7 +34,7 @@ export class EmployeeAddComponent implements OnInit {
     contactNumber: new FormArray([
       new FormControl('', [Validators.required])
     ])
-  })
+  });
 
   employeeData: EmployeeInterface;
 
@@ -47,14 +50,11 @@ export class EmployeeAddComponent implements OnInit {
 
   ];
 
-
   constructor(
     private employeeService: EmployeeService,
     private router: Router,
-    private snackbar: SnackBarService
+    private snackbar: SnackBarService         // to show functional message (info)
   ) { }
-
-
 
 
   employeeSet(): EmployeeInterface {
@@ -65,7 +65,7 @@ export class EmployeeAddComponent implements OnInit {
       bloodGroup: this.bloodGroup.value,
       address: this.address.value,
       contactNumber: this.contactNumber.value,
-      id: generateUUID()
+      id: generateUUID()  // to create unique id
     }
   }
 
@@ -89,6 +89,7 @@ export class EmployeeAddComponent implements OnInit {
   }
 
 
+// To add new form control to enter additional Address & ContactNumbers
 
   onAddNumber() {
     (<FormArray>this.employeeAddForm.get('contactNumber')).push(new FormControl(''));

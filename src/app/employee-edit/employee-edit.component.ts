@@ -6,7 +6,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import generateUUID from 'smc-uuid-generator';
 import { SnackBarService } from '../service/snack-bar.service';
 
-
+// blood group interface
 interface bloodGroup {
   value: string;
   viewValue: string;
@@ -22,8 +22,9 @@ export class EmployeeEditComponent implements OnInit {
   emps;
   emp
   id;
-  @ViewChild("f") form: any;
+  @ViewChild("f") form: any;  // form
 
+  // dropdown 
   bg: bloodGroup[] = [
     { value: 'A +', viewValue: 'A +' },
     { value: 'A -', viewValue: 'A -' },
@@ -45,28 +46,26 @@ export class EmployeeEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = this._Activatedroute.snapshot.params['id'];
+    this.id = this._Activatedroute.snapshot.params['id'];       
     // console.log(this.id)
     this.emps = this.employeeService.getEmployeeData();
-    this.emp = this.emps.find(res => res.id == this.id)
+    this.emp = this.emps.find(res => res.id == this.id)            // to get by employee unique id
 
   }
 
   
 
   onSubmit() {
-
     if (this.form.value) {
       this.employeeService.editEmployeeData(this.emp);
-      this.snackbar.info("Successfully edited!")
+      this.snackbar.info("Successfully edited!")                  // submit edited form
       this.router.navigate(['/']);
     }
   }
 
-  trackByIndex(index: number, obj: any): any {
+  trackByIndex(index: number, obj: any): any {                  
     return index;
   }
-
 
 
 }

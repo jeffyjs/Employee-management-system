@@ -21,7 +21,7 @@ import { EmployeeViewDetailsComponent } from '../employee-view-details/employee-
 })
 export class EmployeeTableComponent implements OnInit, AfterViewInit {
   ELEMENT_DATA: EmployeeInterface[];
-  displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete','view'];
+  displayedColumns: string[] = ['name', 'age', 'department', 'bloodGroup', 'address', 'contactNumber', 'edit', 'delete','view'];  //table head
   dataSource = new MatTableDataSource<EmployeeInterface>(this.ELEMENT_DATA);
 
 
@@ -40,6 +40,7 @@ export class EmployeeTableComponent implements OnInit, AfterViewInit {
   ) { }
 
 
+  // Add button dialog
   openDialog() {
     const dialogRef = this.dialog.open(EmployeeAddComponent);
 
@@ -49,12 +50,12 @@ export class EmployeeTableComponent implements OnInit, AfterViewInit {
   }
 
 
-
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
+  // delete employee function
   onDelete(id) {
     for (let i = 0; i < this.emps.length; i++) {
       if (this.emps[i].id == id) {
@@ -76,7 +77,7 @@ export class EmployeeTableComponent implements OnInit, AfterViewInit {
 
   }
 
-
+//  filter function
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

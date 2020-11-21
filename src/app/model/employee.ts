@@ -1,3 +1,5 @@
+//emplyee interface
+
 export interface EmployeeInterface {
     id: any;
     name: string;

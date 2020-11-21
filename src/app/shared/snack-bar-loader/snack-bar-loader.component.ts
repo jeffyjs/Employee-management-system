@@ -9,8 +9,10 @@ import { MatSnackBarRef, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
 export class SnackBarLoaderComponent implements OnInit {
 
   loading: boolean = false;
+
   constructor(
     private ref: MatSnackBarRef<SnackBarLoaderComponent>,
+    
     @Inject(MAT_SNACK_BAR_DATA) public data: string
   ) { }
 

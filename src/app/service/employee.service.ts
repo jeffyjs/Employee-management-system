@@ -8,6 +8,7 @@ export class EmployeeService {
 
   constructor() { }
 
+  // initial table data
   getEmployeeData() {
     const empdata = JSON.parse(localStorage.getItem('Employees'))
     if (!empdata) {
@@ -16,7 +17,7 @@ export class EmployeeService {
     return empdata;
   }
 
-
+  //adding employe
   addEmployeeData(employeeData: EmployeeInterface) {
     let allEmployees = [];
     if (localStorage.getItem('Employees')) {
@@ -30,7 +31,7 @@ export class EmployeeService {
   }
 
 
-
+  //edit emplyee
   editEmployeeData(updatedEmpData) {
 
     function removeEmptyValues(actual) {
@@ -54,9 +55,7 @@ export class EmployeeService {
     localStorage.setItem('Employees', JSON.stringify(employeeData));
   }
 
-
-
-
+  //remove employee
   deleteEmployee(id) {
     let employeeData = JSON.parse(localStorage.getItem('Employees'));
     for (let i = 0; i < employeeData.length; i++) {

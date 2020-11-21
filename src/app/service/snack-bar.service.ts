@@ -8,7 +8,7 @@ import { SnackBarLoaderComponent } from '../shared/snack-bar-loader/snack-bar-lo
 export class SnackBarService {
   constructor(private snackBar: MatSnackBar) { }
 
-  info(message, action = 'Close') {
+  info(message, action = 'Close') {                   //snackbar info function
     this.snackBar.open(message, action, {
       duration: 5000,
       horizontalPosition: 'right',
@@ -17,7 +17,7 @@ export class SnackBarService {
     });
   }
 
-  error(message, action = 'Close') {
+  error(message, action = 'Close') {                //snackbar err function
     this.snackBar.open(message, action, {
       duration: 5000,
       horizontalPosition: 'right',

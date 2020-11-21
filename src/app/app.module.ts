@@ -24,6 +24,7 @@ import { SnackBarService } from './service/snack-bar.service';
 import { LimitTextPipe } from './pipes/limit-text.pipe';
 import { EmployeeViewDetailsComponent } from './employee-view-details/employee-view-details.component';
 
+// routes
 const routes: Routes = [
   { path: "", component: EmployeeTableComponent },
   { path: "emp-edit/:id", component: EmployeeEditComponent },

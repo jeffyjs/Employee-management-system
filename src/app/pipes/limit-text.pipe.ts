@@ -8,7 +8,7 @@ export class LimitTextPipe implements PipeTransform {
   transform(value: string, limit: number): string {
     return value.length < limit
       ? value
-      : value.slice(0, limit) + '...';
+      : value.slice(0, limit) + '...';    //truncate pipe to limit text display
   }
 
 }
